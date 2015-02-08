@@ -31,8 +31,10 @@ data3$Global_reactive_power <- as.numeric(data3$Global_reactive_power)
 ##Creating the Graphs
 png(filename = "plot4.png")
 
+par(mfcol = c(2,2))
+
 ##Global Active Power Graph
-plot(data3$datetime, data3$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)")
+plot(data3$datetime, data3$Global_active_power, type = "l", xlab = " ", ylab = "Global Active Power (kilowatts)")
 
 ##Sub Metering Graph
 plot(data3$datetime, data3$Sub_metering_1, type = "n", xlab = " ", ylab = "Energy sub metering")
@@ -42,10 +44,9 @@ lines(data3$datetime, data3$Sub_metering_3, col = "Blue")
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), pch = "_", col = c("Black", "Red", "Blue"))
 
 ##Voltage Graph
-plot(data3$datetime, data3$Global_active_power, type = "l", ylab = "Voltage")
+plot(data3$datetime, data3$Voltage, type = "l", xlab = "datetime", ylab = "Voltage")
 
 ##Global Reactive Power Graph
-plot(data3$datetime, data3$Global_active_power, type = "l", ylab = "Global_rective_power")
-
+plot(data3$datetime, data3$Global_reactive_power, type = "l", xlab = "datetime", ylab = "Global_reactive_power")
 
 dev.off()
